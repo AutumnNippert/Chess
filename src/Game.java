@@ -1,4 +1,7 @@
-import Utility.Board;
+import Controllers.*;
+import Menu.*;
+import Pieces.*;
+import Utility.*;
 
 public class Game {
     Board board;
