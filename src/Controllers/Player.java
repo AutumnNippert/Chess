@@ -1,6 +1,10 @@
 package Controllers;
 
+import Menu.VerticalMenu;
+import Pieces.Piece;
 import Utility.*;
+
+import java.util.ArrayList;
 
 /**
  * Controllers.Player Class
@@ -12,10 +16,32 @@ import Utility.*;
  */
 public class Player extends Controller {
 
-    public Player() { super(); }
+    public enum Letters{
+        A, B, C, D, E, F, G, H
+    }
 
+    public Player(int controllerNumber) { super(controllerNumber); }
+
+    @Override
+    public Piece selectPiece(Board board) {
+        VerticalMenu<String> selectionMenu = new VerticalMenu<String>("Select the piece you want to move (ex. A1, C3).", new ArrayList<>(0));
+        selectionMenu.display();
+        String input = selectionMenu.getInput(">>> ");
+        int y = Letters.valueOf(String.valueOf(input.charAt(0))).ordinal();
+        int x = Character.getNumericValue(input.toCharArray()[1]) - 1;
+        CoordinatePair pieceSelection = new CoordinatePair(x, y);
+        System.out.println(pieceSelection);
+        return board.get(pieceSelection);
+    }
+
+    @Override
     public CoordinatePair selectPosition(Board board) {
-        return new CoordinatePair(0, 0);
+        VerticalMenu<String> selectionMenu = new VerticalMenu<String>("Select where you would like to move to (ex. A1, C3).", new ArrayList<>(0));
+        selectionMenu.display();
+        String input = selectionMenu.getInput(">>> ");
+        int y = Letters.valueOf(String.valueOf(input.charAt(0))).ordinal();
+        int x = Character.getNumericValue(input.toCharArray()[1]) - 1;
+        return new CoordinatePair(x, y);
     }
 
 }

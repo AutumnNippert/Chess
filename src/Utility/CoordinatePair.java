@@ -17,4 +17,20 @@ public class CoordinatePair {
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "CoordinatePair{" +
+                "x: " + x +
+                "y: " + y +
+                "}";
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o instanceof CoordinatePair cp){
+            return this.x == (cp.x) && this.y == (cp.y);
+        } else
+            return false;
+    }
 }

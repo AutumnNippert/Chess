@@ -1,5 +1,6 @@
 package Controllers;
 
+import Pieces.Piece;
 import Utility.*;
 
 /**
@@ -11,11 +12,16 @@ import Utility.*;
  */
 public abstract class Controller {
 
+    int controllerNumber;
+
     /**
      * Constructs the controller.
      *
      */
-    public Controller() { }
+    public Controller(int controllerNumber) { this.controllerNumber = controllerNumber; }
+
+
+    public abstract Piece selectPiece(Board board);
 
     public abstract CoordinatePair selectPosition(Board board);
 }

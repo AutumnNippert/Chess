@@ -5,6 +5,7 @@ import Utility.*;
 
 public class Main {
     public static void main(String[] args) {
-        Utility.ConsoleFunctions.cls();
+        Game g = new Game();
+        g.initGame();
     }
 }

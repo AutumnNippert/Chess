@@ -1,20 +1,45 @@
 package Pieces;
-import Utility.*;
+
+import Utility.CoordinatePair;
+
+import java.util.ArrayList;
 
 /**
  * Abstract class for all Pieces.
+ *
  * @author Chris Nippert
  * @version 0.1;
  */
 public abstract class Piece {
+    public CoordinatePair position;
+    public final int controllerNum;
+
     /**
      * Constructor.
+     *
+     * @param position      Defines the position of the piece.
+     * @param controllerNum Defines who controls this piece.
      */
-    public Piece() { }
+    public Piece(CoordinatePair position, int controllerNum) {
+        this.position = position;
+        this.controllerNum = controllerNum;
+    }
 
     /**
      * Gets valid moves of a piece.
+     *
      * @return Utility.CoordinatePair[]
      */
-    public abstract CoordinatePair[] getValidMoves();
+    public ArrayList<CoordinatePair> getValidMoves() {
+        return new ArrayList<CoordinatePair>();
+    }
+
+    @Override
+    public String toString() {
+        return """
+                 \n
+                 \n
+                 \n
+                """;
+    }
 }
