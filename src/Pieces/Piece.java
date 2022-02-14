@@ -1,5 +1,6 @@
 package Pieces;
 
+import Utility.Board;
 import Utility.CoordinatePair;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public abstract class Piece {
      *
      * @return Utility.CoordinatePair[]
      */
-    public ArrayList<CoordinatePair> getValidMoves() {
+    public ArrayList<CoordinatePair> getValidMoves(Board board) {
         return new ArrayList<CoordinatePair>();
     }
 
@@ -41,5 +42,10 @@ public abstract class Piece {
                  \n
                  \n
                 """;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        return o instanceof Piece p;
     }
 }

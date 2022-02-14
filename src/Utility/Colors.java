@@ -21,4 +21,35 @@ public class Colors {
     public static final String PURPLE_BACKGROUND = "\u001B[45m";
     public static final String CYAN_BACKGROUND = "\u001B[46m";
     public static final String WHITE_BACKGROUND = "\u001B[47m";
+
+    /**
+     * Returns a string with a color.
+     * @param s input string
+     * @param c input color
+     * @return String with color
+     */
+    public static String stringColor(String s, String c)
+    {
+        String colorStr = "";
+        for (String string : s.split("\n")) {
+            colorStr += c + s + Colors.RESET + "\n";
+        }
+        return colorStr;
+    }
+
+    /**
+     * Returns a string with a color.
+     * @param s input string
+     * @param cFore input color foreground
+     * @param cBack input color background
+     * @return String with color
+     */
+    public static String stringColor(String s, String cFore, String cBack)
+    {
+        String colorStr = "";
+        for (String string : s.split("\n")) {
+            colorStr += cBack + cFore + s + Colors.RESET + "\n";
+        }
+        return colorStr;
+    }
 }

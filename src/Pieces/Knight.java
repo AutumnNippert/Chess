@@ -1,5 +1,7 @@
 package Pieces;
 
+import Utility.Board;
+import Utility.Colors;
 import Utility.CoordinatePair;
 
 import java.util.ArrayList;
@@ -16,16 +18,22 @@ public class Knight extends Piece  {
     }
 
     @Override
-    public ArrayList<CoordinatePair> getValidMoves() {
+    public ArrayList<CoordinatePair> getValidMoves(Board board) {
         return new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return """
+        String s = """
         ┌┌╗
-        │└
+        │└-
         └─┘
         """;
+        if (controllerNum == 1) {
+            s = Utility.Colors.stringColor(s, Colors.GREEN);
+        } else {
+            s = Utility.Colors.stringColor(s, Colors.RED);
+        }
+        return s;
     }
 }

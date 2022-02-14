@@ -1,10 +1,12 @@
 package Pieces;
 
+import Utility.Board;
+import Utility.Colors;
 import Utility.CoordinatePair;
 
 import java.util.ArrayList;
 
-public class Bishop extends Piece  {
+public class Bishop extends Piece {
     /**
      * Constructor.
      *
@@ -16,16 +18,22 @@ public class Bishop extends Piece  {
     }
 
     @Override
-    public ArrayList<CoordinatePair> getValidMoves() {
+    public ArrayList<CoordinatePair> getValidMoves(Board board) {
         return new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return """
-         0
+        String s = """
+         0-
         ┌┴\\
         └─┘
         """;
+        if (controllerNum == 1) {
+            s = Utility.Colors.stringColor(s, Colors.GREEN);
+        } else {
+            s = Utility.Colors.stringColor(s, Colors.RED);
+        }
+        return s;
     }
 }

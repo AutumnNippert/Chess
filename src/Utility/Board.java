@@ -77,8 +77,12 @@ public class Board {
      * @return Boolean
      */
     public boolean isValidPieceMovement(Piece p, CoordinatePair dest) {
-        ArrayList<CoordinatePair> validDests = p.getValidMoves();
+        ArrayList<CoordinatePair> validDests = p.getValidMoves(this);
         return validDests.contains(dest);
+    }
+
+    public boolean pieceExists(CoordinatePair position){
+        return !this.get(position).equals(new Empty(position, 0));
     }
 
     /**
@@ -86,16 +90,16 @@ public class Board {
      */
     public void initBoard() {
         //Setting far side
-        this.add(new Rook(new CoordinatePair(0, 0), 1));
-        this.add(new Knight(new CoordinatePair(1, 0), 1));
-        this.add(new Bishop(new CoordinatePair(2, 0), 1));
-        this.add(new Queen(new CoordinatePair(3, 0), 1));
-        this.add(new King(new CoordinatePair(4, 0), 1));
-        this.add(new Bishop(new CoordinatePair(5, 0), 1));
-        this.add(new Knight(new CoordinatePair(6, 0), 1));
-        this.add(new Rook(new CoordinatePair(7, 0), 1));
+        this.add(new Rook(new CoordinatePair(0, 0), 2));
+        this.add(new Knight(new CoordinatePair(1, 0), 2));
+        this.add(new Bishop(new CoordinatePair(2, 0), 2));
+        this.add(new Queen(new CoordinatePair(3, 0), 2));
+        this.add(new King(new CoordinatePair(4, 0), 2));
+        this.add(new Bishop(new CoordinatePair(5, 0), 2));
+        this.add(new Knight(new CoordinatePair(6, 0), 2));
+        this.add(new Rook(new CoordinatePair(7, 0), 2));
         for (int i = 0; i < 8; i++) {
-            this.add(new Pawn(new CoordinatePair(i, 1), 1));
+            this.add(new Pawn(new CoordinatePair(i, 1), 2));
         }
 
         //Setting Empty Spots
@@ -107,16 +111,16 @@ public class Board {
 
         //Setting close side
         for (int i = 0; i < 8; i++) {
-            this.add(new Pawn(new CoordinatePair(i, 6), 2));
+            this.add(new Pawn(new CoordinatePair(i, 6), 1));
         }
-        this.add(new Rook(new CoordinatePair(0, 7), 2));
-        this.add(new Knight(new CoordinatePair(1, 7), 2));
-        this.add(new Bishop(new CoordinatePair(2, 7), 2));
-        this.add(new King(new CoordinatePair(3, 7), 2));
-        this.add(new Queen(new CoordinatePair(4, 7), 2));
-        this.add(new Bishop(new CoordinatePair(5, 7), 2));
-        this.add(new Knight(new CoordinatePair(6, 7), 2));
-        this.add(new Rook(new CoordinatePair(7, 7), 2));
+        this.add(new Rook(new CoordinatePair(0, 7), 1));
+        this.add(new Knight(new CoordinatePair(1, 7), 1));
+        this.add(new Bishop(new CoordinatePair(2, 7), 1));
+        this.add(new King(new CoordinatePair(3, 7), 1));
+        this.add(new Queen(new CoordinatePair(4, 7), 1));
+        this.add(new Bishop(new CoordinatePair(5, 7), 1));
+        this.add(new Knight(new CoordinatePair(6, 7), 1));
+        this.add(new Rook(new CoordinatePair(7, 7), 1));
 
     }
 
